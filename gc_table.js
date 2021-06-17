@@ -91,7 +91,7 @@ google.charts.setOnLoadCallback(drawTable);
 									  ['Jim',   {v:8000,   f: '$8,000'},  false],
 									  ['Alice', {v: 12500, f: '$12,500'}, true]
 									]);
-									var table = new google.visualization.Table(document.getElementById('table_div'));
+									var table = new google.visualization.Table(document.getElementById('container'));
 									table.draw(data, {showRowNumber: false,page:'enable',pageSize:5,pagingButtons:'both' , width: '450%', height: '450%'});
 								}
 // here google chart code ends **********************************************************************************************
