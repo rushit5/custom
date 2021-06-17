@@ -55,43 +55,31 @@ for(var row of data) {
 	]);
 }
 
-var plot_data = [['Q','Total Count',{ role: "style" },'Goal',{ role: "style" }]];
+var plot_data = [];
+
 for(var row of data) {
 	var cell = row[queryResponse.fields.dimensions[0].name]
 	plot_data.push([ 
            row[x].value,
-	   row[y].value,
-	   'color :'.concat(row[a].value),
+           row[y].value,
 	   row[z].value,
-	   'color : #aba9ad'
-	]);
-}
+	   row[a].value
+	]);}
+	
 // Data retrival and formatting ends here *********************************************************************************
-console.log('Color', plot_data)	
+console.log('plot_data', plot_data)	
 // here google chart code starts *************************************************************************************
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(drawTable);
 
            function drawTable() {
 									var data = new google.visualization.DataTable();
-									data.addColumn('string', 'Name');
-									data.addColumn('number', 'Salary');
-									data.addColumn('boolean', 'Full Time Employee');
-									data.addRows([
-									  ['Mike',  {v: 10000, f: '$10,000'}, true],
-									  ['Jim',   {v:8000,   f: '$8,000'},  false],
-									  ['Alice', {v: 12500, f: '$12,500'}, true],
-									  ['Mike',  {v: 10000, f: '$10,000'}, true],
-									  ['Jim',   {v:8000,   f: '$8,000'},  false],
-									  ['Alice', {v: 12500, f: '$12,500'}, true],
-									  ['Mike',  {v: 10000, f: '$10,000'}, true],
-									  ['Jim',   {v:8000,   f: '$8,000'},  false],
-									  ['Alice', {v: 12500, f: '$12,500'}, true],          
-									  ['Mike',  {v: 10000, f: '$10,000'}, true],
-									  ['Jim',   {v:8000,   f: '$8,000'},  false],
-									  ['Alice', {v: 12500, f: '$12,500'}, true]
-									]);
-									var table = new google.visualization.Table(document.getElementById('container'));
+									data.addColumn('number', 'opens');
+									data.addColumn('number', 'recipients');
+									data.addColumn('number', 'delivered');
+									data.addColumn('number', 'bounced');
+									data.addRows([plot_data]);
+     								var table = new google.visualization.Table(document.getElementById('container'));
 									table.draw(data, {showRowNumber: false,page:'enable',pageSize:5,pagingButtons:'both' , width: '450%', height: '450%'});
 								}
 // here google chart code ends **********************************************************************************************
