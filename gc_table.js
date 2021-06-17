@@ -80,7 +80,7 @@ google.charts.setOnLoadCallback(drawTable);
 									data.addColumn('number', 'bounced');
 									data.addRows(plot_data);
      								var table = new google.visualization.Table(document.getElementById('container'));
-									table.draw(data, {showRowNumber: false,page:'enable',pageSize:5,pagingButtons:'both' , width: '450%', height: '450%'});
+									table.draw(data, {showRowNumber: false,page:'enable',pageSize:5,pagingButtons:5 , width: '450%', height: '450%'});
 								}
 // here google chart code ends **********************************************************************************************
 doneRendering();
