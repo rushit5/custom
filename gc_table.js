@@ -26,34 +26,18 @@ console.log('updateAsync() queryResponse', queryResponse)
 	
 // get the names of the first dimension and measure available in data
 // Data retrival and formatting starts here *********************************************************************************
-x  = config.query_fields.dimensions[0].name;     // quater
-y  = config.query_fields.dimensions[1].name;     // total count
-z  = config.query_fields.dimensions[2].name;     // BM total count
-a  = config.query_fields.dimensions[3].name;     // color codes
+x  = config.query_fields.dimensions[0].name;
+y  = config.query_fields.dimensions[1].name;
+z  = config.query_fields.dimensions[2].name;
+a  = config.query_fields.dimensions[3].name;
+b  = config.query_fields.dimensions[4].name;     
+c  = config.query_fields.dimensions[5].name;     
+d  = config.query_fields.dimensions[6].name;     
+e  = config.query_fields.dimensions[7].name;     
+f  = config.query_fields.dimensions[8].name;     
+g  = config.query_fields.dimensions[9].name;     
+h  = config.query_fields.dimensions[10].name;     
 
- 
-var quarter = [];
-for(var row of data) {
-	var cell = row[queryResponse.fields.dimensions[0].name]
-	quarter.push([
-		row[x].value 
-	]);
-}
-
-var tot_cnt = [];
-for(var row of data) {
-	var cell = row[queryResponse.fields.dimensions[1].name]
-	tot_cnt.push([
-		row[y].value 
-	]);
-}
-var bm_data = [];
-for(var row of data) {
-	var cell = row[queryResponse.fields.dimensions[2].name]
-	bm_data.push([
-		row[z].value 
-	]);
-}
 
 var plot_data = [];
 
@@ -61,26 +45,40 @@ for(var row of data) {
 	var cell = row[queryResponse.fields.dimensions[0].name]
 	plot_data.push([ 
            row[x].value,
-           row[y].value,
-	   row[z].value,
-	   row[a].value
+		   row[y].value,
+	       row[z].value,
+		   row[a].value,
+		   row[b].value,
+		   row[c].value,
+		   row[d].value,
+		   row[e].value,
+		   row[f].value,
+		   row[g].value,
+		   row[h].value
 	]);}
 	
 // Data retrival and formatting ends here *********************************************************************************
-console.log('plot_data', plot_data)	
+console.log('Color', plot_data)	
 // here google chart code starts *************************************************************************************
 google.charts.load('current', {'packages':['table']});
 google.charts.setOnLoadCallback(drawTable);
 
            function drawTable() {
 									var data = new google.visualization.DataTable();
-									data.addColumn('number', 'opens');
-									data.addColumn('number', 'recipients');
-									data.addColumn('number', 'delivered');
-									data.addColumn('number', 'bounced');
-									data.addRows(plot_data);
-     								var table = new google.visualization.Table(document.getElementById('container'));
-									table.draw(data, {showRowNumber: false,page:'enable',pageSize:5,pagingButtons:5 , width: '450%', height: '450%'});
+									data.addColumn('string', 'Campaign');
+									data.addColumn('string', 'Email Subject');
+									data.addColumn('date', 'Send Date');
+									data.addColumn('number', 'Sent');
+									data.addColumn('number', 'Delivered');
+									data.addColumn('number', 'Bounce %');
+									data.addColumn('number', 'UnSubs. %');
+									data.addColumn('number', 'Opens %');
+									data.addColumn('number', 'CTOR');
+									data.addColumn('number', 'Revennue');
+									data.addColumn('number', 'CR');
+									data.addRows([plot_data]);									
+									var table = new google.visualization.Table(document.getElementById('container'));
+									table.draw(data, {showRowNumber: false,page:'enable',pageSize:15,pagingButtons:'both' , width: '450%', height: '450%',frozenColumns:3,alternatingRowStyle:false});
 								}
 // here google chart code ends **********************************************************************************************
 doneRendering();
