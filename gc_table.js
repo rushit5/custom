@@ -76,7 +76,7 @@ google.charts.setOnLoadCallback(drawTable);
 									data.addColumn('number', 'CTOR');
 									data.addColumn('number', 'Revennue');
 									data.addColumn('number', 'CR');
-									data.addRows([plot_data]);									
+									data.addRows(plot_data);									
 									var table = new google.visualization.Table(document.getElementById('container'));
 									table.draw(data, {showRowNumber: false,page:'enable',pageSize:15,pagingButtons:'both' , width: '450%', height: '450%',frozenColumns:3,alternatingRowStyle:false});
 								}
