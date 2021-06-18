@@ -1,13 +1,13 @@
 looker.plugins.visualizations.add({
 create: function(element, config) {
-  element.innerHTML = `
-	<style>
-	.sannith {
-	min-width: 500px;
-	height: 600px
-	}
-	</style>
-	`;
+  //element.innerHTML = `
+//	<style>
+//	.sannith {
+//	min-width: 500px;
+//	height: 600px
+//	}
+//	</style>
+//	`;
 	
     var container = element.appendChild(document.createElement("div"));
 	container.className = "sannith";
