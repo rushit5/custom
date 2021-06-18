@@ -78,7 +78,7 @@ google.charts.setOnLoadCallback(drawTable);
 									data.addColumn('number', 'CR');
 									data.addRows(plot_data);									
 									var table = new google.visualization.Table(document.getElementById('container'));
-									table.draw(data, {showRowNumber: false,page:'enable',pageSize:15,pagingButtons:5 ,frozenColumns:3,alternatingRowStyle:false});
+									table.draw(data, {showRowNumber: false,page:'enable',width: '100%', height: '100%',pageSize:15,pagingButtons:5 ,frozenColumns:3,alternatingRowStyle:false});
 								}
 // here google chart code ends **********************************************************************************************
 doneRendering();
