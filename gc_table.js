@@ -3,8 +3,8 @@ create: function(element, config) {
   element.innerHTML = `
 	<style>
 	.sannith {
-	min-width: 200px;
-	height: 290px
+	min-width: 300px;
+	height: 400px
 	}
 	</style>
 	`;
@@ -78,7 +78,7 @@ google.charts.setOnLoadCallback(drawTable);
 									data.addColumn('number', 'CR');
 									data.addRows(plot_data);									
 									var table = new google.visualization.Table(document.getElementById('container'));
-									table.draw(data, {showRowNumber: false,page:'enable',pageSize:15,pagingButtons:'both' , width: '450%', height: '450%',frozenColumns:3,alternatingRowStyle:false});
+									table.draw(data, {showRowNumber: false,page:'enable',pageSize:15,pagingButtons:5 , width: '450%', height: '450%',frozenColumns:3,alternatingRowStyle:false});
 								}
 // here google chart code ends **********************************************************************************************
 doneRendering();
