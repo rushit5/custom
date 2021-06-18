@@ -67,7 +67,7 @@ google.charts.setOnLoadCallback(drawTable);
 									var data = new google.visualization.DataTable();
 									data.addColumn('string', 'Campaign');
 									data.addColumn('string', 'Email Subject');
-									data.addColumn('date', 'Send Date');
+									data.addColumn('string', 'Send Date');
 									data.addColumn('number', 'Sent');
 									data.addColumn('number', 'Delivered');
 									data.addColumn('number', 'Bounce %');
